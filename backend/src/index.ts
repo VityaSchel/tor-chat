@@ -1,7 +1,11 @@
+import './env.js'
 import fastify from 'fastify'
 import fastifyWebsocket from '@fastify/websocket'
 import fastifyCookie from '@fastify/cookie'
 import { getIP } from './utils.js'
+
+const blacklistedWords = process.env.BLACKLISTED_WORDS?.split(',') ?? []
+const blacklistedContents = process.env.BLACKLISTED_CONTENTS?.split(',') ?? []
 
 const app = fastify({ logger: true })
 app.register(fastifyWebsocket, { options: { maxPayload: 1024*9 } })
@@ -43,11 +47,17 @@ app.register(async function (fastify) {
     connection.socket.on('message', (message, isBinary) => {
       const messageString = message.toString('utf-8')
       if(!isBinary && messageString.length > 0 && messageString.length <= 1024) {
-        fastify.websocketServer.clients.forEach(function each(client) {
-          if (client !== connection.socket && client.readyState === 1) {
-            client.send(`>: ${userName}\n${messageString}`)
-          }
-        })
+        const messageWords = messageString.split(' ')
+        if(
+          !blacklistedWords.some(word => messageWords.includes(word)) &&
+          !blacklistedContents.some(content => messageString.includes(content))
+        ) {
+          fastify.websocketServer.clients.forEach(function each(client) {
+            if (client !== connection.socket && client.readyState === 1) {
+              client.send(`>: ${userName}\n${messageString}`)
+            }
+          })
+        }
       }
     })
     connection.socket.on('close', () => {
@@ -62,8 +72,8 @@ app.register(async function (fastify) {
   })
 })
 
-const port = 3000
-const ip = getIP()
+const port = Number(process.env.PORT ?? 3000)
+const ip = process.env.IP_ADDRESS === 'auto' ? getIP() : (process.env.IP_ADDRESS ?? getIP())
 app.listen({ port: port, host: ip }, err => {
   if (err) {
     console.error(err)

@@ -63,7 +63,10 @@ You can generate hostname addresses with [mkp224o](https://github.com/cathugger/
 
 You can adjust settings of this server using .env file. Just edit it and restart program.
 
-| Key        | Description                   |
-| ---------- | ----------------------------- |
-| PORT       | Port number to run backend on |
-| IP_ADDRESS | Set binded IP address manually or leave to `auto`, you can use `localhost` too |
+| Key                  | Description                                                                                                                                             |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PORT                 | Port number to run backend on                                                                                                                           |
+| IP_ADDRESS           | Set binded IP address manually or leave to `auto`, you can use `localhost` too                                                                          |
+| BLACKLISTED_WORDS    | Blacklisted words separated by comma. You mustn't use spaces in this env var, because it won't work. Example: `cp,porn,telegram`                        |
+| BLACKLISTED_CONTENTS | Blacklisted contents separated by comma. You can use spaces, but be aware that it checks inside all text, not words. Example: `children porn,free porn` |
+|                      |                                                                                                                                                         |
