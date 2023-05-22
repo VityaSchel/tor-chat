@@ -1,0 +1,32 @@
+.history {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-top: 1px solid #000;
+  padding-top: 10px;
+
+  .messages {
+    width: 100%;
+    display: flex;   
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: auto;
+
+    .message {
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+  
+    .divider {
+      background-color: #eee;
+      height: 0.5px;
+      border: 0.5px solid #aaa;
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+}

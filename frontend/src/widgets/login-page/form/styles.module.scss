@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 200px;
+    height: 200px;
+
+    .error {
+      color: red;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px; 
+    }
+  }
+}

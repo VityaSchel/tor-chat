@@ -1,0 +1,79 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 275px;
+
+  h1, h2 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+  }
+
+  h2 span {
+    filter: 
+      drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.25))
+      drop-shadow(-1px -1px 0px rgba(0, 0, 0, 0.25))
+      drop-shadow(1px -1px 0px rgba(0, 0, 0, 0.25))
+      drop-shadow(-1px 1px 0px rgba(0, 0, 0, 0.25))
+      drop-shadow(1px 0px 0px rgba(0, 0, 0, 0.25)) 
+      drop-shadow(-1px 0px 0px rgba(0, 0, 0, 0.25))  
+      drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.25)) 
+      drop-shadow(0px -1px 0px rgba(0, 0, 0, 0.25));
+
+    &.bg1 {
+      background: 
+        radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+        radial-gradient(at 100% 100%,      rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px), 
+        #8a3;
+      background-size: 10px;
+    }
+
+    &.bg2 {
+      background:
+        linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+        linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+        linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+        linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+        #36c;
+      background-size: 10px;
+    }
+
+    &.bg3 {
+      $g: radial-gradient(#0000 70%,#1a2030 71%);
+      background:
+        $g, $g 60px 60px,
+        conic-gradient(#0f9177 25%,#fdebad 0 50%,#d34434 0 75%,#b5d999 0);
+      background-size: 10px;
+    }
+
+    &.bg4 {
+      background: repeating-linear-gradient(45deg, #206120 0, #206120 1px, #89E089 0, #89E089 50%);
+      background-size: 10px 10px;
+    }
+
+    &.bg5 {
+      background: linear-gradient(135deg, #FACB0E 25%, #E7393F 25%) -10px 0,linear-gradient(225deg, #FACB0E 25%, #E7393F 25%) -10px 0,linear-gradient(315deg, #FACB0E 25%, #E7393F 25%),linear-gradient(45deg, #FACB0E 25%, #E7393F 25%);
+      background-size: 8px 9px;
+    }
+
+    &.bg1, &.bg2, &.bg3, &.bg4, &.bg5 {
+      background-position: 0;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: bg-flow 20s linear;
+      animation-iteration-count: infinite;
+      font-weight: 900;
+    }
+
+    @keyframes bg-flow {
+      from {
+        background-position: 0% 0%;
+      }
+
+      to {
+        background-position: 400% 100%;
+      }
+    }
+  }
+}
