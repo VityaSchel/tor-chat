@@ -17,10 +17,13 @@ export const historySlice = createSlice({
     addMessage: (state, action: PayloadAction<{ message: string }>) => {
       state.messages.push(action.payload.message)
     },
+    clearMessages: (state) => {
+      state.messages = []
+    }
   },
 })
 
-export const { addMessage } = historySlice.actions
+export const { addMessage, clearMessages } = historySlice.actions
 
 export const selectHistory = (state: RootState) => state.history
 

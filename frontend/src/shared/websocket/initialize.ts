@@ -1,5 +1,5 @@
 import { store } from '../../app/store'
-import { addMessage } from '../../app/store/slices/history'
+import { addMessage, clearMessages } from '../../app/store/slices/history'
 import { setWebsocket } from '../../app/store/slices/websocket'
 
 export function initializeWebSocket(username: string): Promise<WebSocket> {
@@ -17,6 +17,7 @@ export function initializeWebSocket(username: string): Promise<WebSocket> {
 
     socket.addEventListener('close', () => {
       store.dispatch(setWebsocket({ websocket: null }))
+      store.dispatch(clearMessages())
     })
   })
 }

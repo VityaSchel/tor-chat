@@ -19,8 +19,8 @@ export function LoginPageForm() {
             .max(64, 'Maximum 64 chars')
             .matches(/^[a-zA-Z0-9]+$/, 'Nickname can only consist of a‑z, A‑Z and 0‑9')
             .required('Fill this field')
-        }
-      )}
+        })
+      }
       onSubmit={async (values) => {
         dispatch(setUsername({ username: values.nickname }))
         dispatch(setWebsocket({ websocket: await initializeWebSocket(values.nickname) }))
