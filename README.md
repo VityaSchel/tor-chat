@@ -10,7 +10,7 @@ Frontend:
 - Vite (React)
 - FSD architecture
 
-Fastify runs webserver on port 3000 sharing static files at /html:/ and websocket server at /
+Fastify runs webserver on port 3000 sharing websocket server at /
 
 ## Capabilities
 
