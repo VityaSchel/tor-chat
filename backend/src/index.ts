@@ -42,7 +42,7 @@ app.register(async function (fastify) {
 
       connection.socket.isAlive = false
       connection.socket.ping()
-    }, 1000)
+    }, 30000)
 
     connection.socket.on('message', (message, isBinary) => {
       const messageString = message.toString('utf-8')
