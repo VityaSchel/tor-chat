@@ -2,9 +2,6 @@
 
 ![image](https://github.com/VityaSchel/tor-chat/assets/59040542/77de1dd4-7c3f-4b84-bfda-183fea59a681)
 
-Demo version in Tor:
-[**tormsg**rns63s7oivkcjxodze3zr7qaay7haqi7chojayrxpvtmiv7gyd.onion/](http://tormsgrns63s7oivkcjxodze3zr7qaay7haqi7chojayrxpvtmiv7gyd.onion/)
-
 ## Tech stack
 
 Backend:
